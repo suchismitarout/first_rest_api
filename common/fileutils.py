@@ -11,6 +11,12 @@ def write_list_as_new_line_json(list_obj, path):
         for i in list_obj:
             fw.write(json.dumps(i))
             fw.write("\n")
+            
+def read_json_file(path):
+    with open(path, "r") as fj:
+        f = fj.read()
+        data = json.loads(f)
+        
 
 
 
