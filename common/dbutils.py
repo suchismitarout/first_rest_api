@@ -20,10 +20,10 @@ def connect_to_faculty_db():
     return conn2
 
 
-def insert_data_to_student_database(conn1):
+def insert_data_to_student_database(conn, data):
     conn = connect_to_student_db()
     cur = conn.cursor()
-    for i in student.res:
+    for i in data:
         columns = ', '.join("""""" + str(x) + """""" for x in i.keys())
         values = ', '.join("'" + str(x) + "'" for x in i.values())
         sql = "INSERT INTO %s ( %s ) VALUES ( %s );" % ('student', columns, values)
