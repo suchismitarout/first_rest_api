@@ -45,7 +45,7 @@ def add_new_student():
     data = request.get_json()
     res.append(data)
     conn = dbutils.connect_to_student_db
-    dbutils.insert_data_to_student_database(conn)
+    dbutils.insert_data_to_student_database(conn,data)
     ##res.append(data)
     file_name = "student_data.json"
     parent_dir_path = dirname(dirname(abspath(__file__)))
