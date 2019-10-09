@@ -4,6 +4,7 @@ from flask import Blueprint
 from os.path import dirname,abspath
 from common import fileutils
 from common import fileutils
+from common import dbutils
 
 student_var = Blueprint('student', __name__, url_prefix='/student')
 
@@ -49,6 +50,8 @@ def add_new_student():
     d = {"name": name, "age": age, "id": id, "salary": salary, "loc": loc}
     data = request.get_json(d)
     res.append(data)
+    conn = dbutils.connect_to_student_db
+    dbutils.insert_data_to_student_database(conn)
     ##res.append(data)
     file_name = "student_data.json"
     parent_dir_path = dirname(dirname(abspath(__file__)))
