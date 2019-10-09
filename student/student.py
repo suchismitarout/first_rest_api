@@ -42,13 +42,7 @@ def delete_by_student_by_id(id):
 @student_var.route('/add_new_student', methods=['POST'])
 def add_new_student():
     # print("ENTRY: add_new_student")
-    name = request.form.get("name")
-    age = request.form.get("age")
-    id = request.form.get("id")
-    salary = request.form.get("salary")
-    loc = request.form.get("loc")
-    d = {"name": name, "age": age, "id": id, "salary": salary, "loc": loc}
-    data = request.get_json(d)
+    data = request.get_json()
     res.append(data)
     conn = dbutils.connect_to_student_db
     dbutils.insert_data_to_student_database(conn)
