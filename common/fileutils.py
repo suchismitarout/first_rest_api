@@ -16,6 +16,7 @@ def read_json_file(path):
     with open(path, "r") as fj:
         f = fj.read()
         data = json.loads(f)
+        return data
         
 
 
