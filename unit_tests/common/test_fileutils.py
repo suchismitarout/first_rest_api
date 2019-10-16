@@ -3,7 +3,6 @@ from first_restapi.common import fileutils
 from os.path import dirname,abspath
 
 
-
 class Testreadfile(unittest.TestCase):
     def test_read_new_line_json(self):
         """
