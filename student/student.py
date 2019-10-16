@@ -9,7 +9,7 @@ conn = dbutils.connect_to_student_db("db_config.json")
 # print("loading student_api.....")
 file_name = "student_data.json"
 parent_dir_path = dirname(dirname(abspath(__file__)))
-res=fileutils.read_new_line_json(parent_dir_path + "/resources/" + file_name)
+res=fileutils.read_new_line_json(parent_dir_path + "\\resources\\" + file_name)
 print(res)
 
 
