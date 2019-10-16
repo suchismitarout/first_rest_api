@@ -10,7 +10,7 @@ faculty_var = Blueprint('faculty', __name__, url_prefix='/faculty')
 
 file_name = "faculty_data.json"
 parent_dir_path = dirname(dirname(abspath(__file__)))
-res2 = fileutils.read_new_line_json(parent_dir_path + "/resources/" + file_name)
+res2 = fileutils.read_new_line_json(parent_dir_path + "\\resources\\" + file_name)
 # print(res2)
 
 
