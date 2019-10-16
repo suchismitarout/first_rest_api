@@ -1,7 +1,6 @@
 import json
 import os
-import logging
-logger = logging.getLogger(__name__)
+
 
 
 def read_new_line_json(path):
