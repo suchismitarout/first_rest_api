@@ -1,6 +1,6 @@
 from flask import Flask
-from faculty.faculty import faculty_var
-from student.student import student_var
+from first_restapi.faculty.faculty import faculty_var
+from first_restapi.student.student import student_var
 
 if __name__ == '__main__':
     app = Flask(__name__)
