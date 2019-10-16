@@ -1,10 +1,7 @@
-from flask import Flask, request,jsonify, g
-import json
+from flask import request,jsonify
 from flask import Blueprint
 from os.path import dirname,abspath
-from common import fileutils
-from common import fileutils
-from common import dbutils
+from first_restapi.common import dbutils, fileutils, validator
 
 student_var = Blueprint('student', __name__, url_prefix='/student')
 conn = dbutils.connect_to_student_db("db_config.json")
@@ -13,7 +10,8 @@ conn = dbutils.connect_to_student_db("db_config.json")
 file_name = "student_data.json"
 parent_dir_path = dirname(dirname(abspath(__file__)))
 res=fileutils.read_new_line_json(parent_dir_path + "/resources/" + file_name)
-# print(res)
+print(res)
+
 
 @student_var.route('/getall', methods=['GET'])
 def get_student_info():
@@ -42,20 +40,18 @@ def delete_by_student_by_id(id):
 
 @student_var.route('/add_new_student', methods=['POST'])
 def add_new_student():
-    # print("ENTRY: add_new_student")
+    print("ENTRY: add_new_student")
     data = request.get_json()
+    print(data)
     res.append(data)
-    dbutils.insert_data_to_student_database(conn,data)
+    # validator.validate_id(data["id"])
+    # validator.validate_age(data["age"])
+    conn = dbutils.connect_to_student_db("db_config.json")
+    dbutils.insert_data_to_student_database(conn, data)
     ##res.append(data)
     file_name = "student_data.json"
     parent_dir_path = dirname(dirname(abspath(__file__)))
     fileutils.write_list_as_new_line_json(res, parent_dir_path + "/resources/" + file_name)
-    # dirpath=os.getcwd()
-    # with open ("{}/student_data.json".format(dirpath), "w") as fw:
-    #     for i in res:
-    #         fw.write(json.dumps(i))
-    #         fw.write("\n")
-
     return jsonify(res)
 
 
