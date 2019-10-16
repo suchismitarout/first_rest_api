@@ -1,7 +1,7 @@
 import mysql.connector
 from os.path import dirname,abspath
 from first_restapi.common import fileutils
-from first_restapi import resources
+
 
 def read_config_file(file_name):
     parent_dir_path = dirname(dirname(abspath(__file__)))
