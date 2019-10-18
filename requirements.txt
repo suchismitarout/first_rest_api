@@ -1,12 +1,3 @@
 flask
-Flask
 mysql.connector
-os.path
-dirname
-abspath
-unittest
-request
-requests
-jsonify
-json
 Blueprint
