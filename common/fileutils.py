@@ -2,7 +2,6 @@ import json
 import os
 
 
-
 def read_new_line_json(path):
     with open(path, "r") as fr:
         content2 = fr.read()
